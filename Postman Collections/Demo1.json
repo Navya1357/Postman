@@ -10,6 +10,23 @@
 			"item": [
 				{
 					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6bf0e6f8-fcf9-4f7e-a659-f8a466c97376",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "2dff9310-f0b4-4e53-a9de-140a23f12b7a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -17,6 +34,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "https://reqres.in/api/users"
 					},
 					"response": []
