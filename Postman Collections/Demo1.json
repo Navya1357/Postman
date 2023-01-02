@@ -10,19 +10,19 @@
 			"item": [
 				{
 					"name": "New Request",
-					"_postman_id": "2dff9310-f0b4-4e53-a9de-140a23f12b7a",
+					"id": "2dff9310-f0b4-4e53-a9de-140a23f12b7a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": "https://reqres.in/api/users"
 					},
 					"response": []
 				}
 			],
-			"_postman_id": "4a1e9aa6-40f5-4234-9e07-372711c190dd"
+			"id": "4a1e9aa6-40f5-4234-9e07-372711c190dd"
 		}
 	]
 }
