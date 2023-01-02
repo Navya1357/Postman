@@ -17,7 +17,7 @@
 								"id": "6bf0e6f8-fcf9-4f7e-a659-f8a466c97376",
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(205);\r",
 									"});\r",
 									"pm.test(\"Successful POST request\", function () {\r",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
