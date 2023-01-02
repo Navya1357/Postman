@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "b552e635-c82c-42e0-9835-2755c29ac520",
+		"name": "Collection2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET User",
+					"_postman_id": "67a4162d-026b-4f0b-ace3-45f7b330676b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "GET User List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71c166cf-f5d7-4339-93b3-a90da738f011",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c0706e74-3a1d-448c-8110-c769ef8a18be",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "f88b4eab-09e8-4f3e-acdf-058018bacfa7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}users?page=2",
+							"host": [
+								"{{url}}users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User",
+					"_postman_id": "966d8062-cbea-482d-8e19-c6fa7fe0f23d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}unknown/2"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "4b958a34-dd13-4af9-aba6-d7a3d035b835"
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST Create",
+					"_postman_id": "4c8c0491-e6c1-434c-b184-646abe45dadc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "{{url}}users"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ffda337-0536-4e4c-9560-11087afabe77",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "3ca2d0e4-d4e0-4d77-9b80-8d9956ac9a87",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}users"
+					},
+					"response": []
+				},
+				{
+					"name": "Register Successful",
+					"_postman_id": "f6651f0f-c10d-4a74-b0bf-a3fb1645eb63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}{{endpoint}}"
+					},
+					"response": []
+				},
+				{
+					"name": "https://reqres.in/api/users/2",
+					"_postman_id": "3cb09b0d-8e1e-4f39-8125-f48d07299b9a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Register Unsuccessful",
+					"_postman_id": "e11388ed-7680-41a2-9990-225e5209d346",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "{{url}}register"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "7354aafb-d228-4568-a16f-d6048af7f935"
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "https://reqres.in/api/users/2",
+					"_postman_id": "28b89433-5a2d-4465-a972-6410d7359515",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "https://reqres.in/api/users/2",
+					"_postman_id": "e57513a0-95e1-4c58-b3df-fad6dc6cebbc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"_postman_id": "6b0aae52-7f2a-466d-9d60-355c4ea3b146",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}users/2"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "2f93b59c-0b66-4441-a39b-503323e041fb"
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE USER",
+					"_postman_id": "4e55b908-44f3-4df1-8cc3-3aa50fced4d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://reqres.in/api/users/2"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "ae8ef9d0-c96b-42d0-9990-a76b0fea06ba"
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "GET User List Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71c166cf-f5d7-4339-93b3-a90da738f011",
+								"exec": [
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Verify response time is less than 400ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c0706e74-3a1d-448c-8110-c769ef8a18be",
+								"exec": [
+									"console.log(\"This is a log\");\r",
+									"console.info(\"This is a info\");\r",
+									"console.warn(\"This is a warning\");\r",
+									"console.error(\"This is an error\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "630cfa63-22dd-4ec2-bc23-05678187ec1e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}users?page=2",
+							"host": [
+								"{{url}}users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "898eaa7b-9a17-4308-a61b-b8c3460b130b"
+		},
+		{
+			"name": "DataDriven Demo",
+			"item": [
+				{
+					"name": "New Request",
+					"_postman_id": "eca49f56-8247-40f0-b0bd-9ea2145baa5c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "64dfa298-d2f0-4240-a49e-24c42270a609"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d555e047-0e4d-4276-bf35-62b32589aee5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1646a512-803a-41a5-8816-4dcf03f9a57a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cdffb30a-c44d-4325-890d-560fa17cb55b",
+			"key": "url",
+			"value": "https://reqres.in/api/",
+			"type": "string"
+		},
+		{
+			"id": "834b49b6-bacc-4a2b-8693-d0b6c9da152c",
+			"key": "name",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
